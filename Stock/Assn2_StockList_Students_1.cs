@@ -231,17 +231,21 @@ namespace Assignment_2
             // write your implementation here
             StockNode current = this.head;
             StockNode nextNode;
-            for(current=this.head;current.Next!=null;current=current.Next)
+            for(current=this.head;current!=null;current=current.Next)
             {
-                for( nextNode=current.Next;nextNode.Next!=null;nextNode=nextNode.Next)
+                for( nextNode=current.Next;nextNode!=null;nextNode=nextNode.Next)
                 {
-                    if(current.StockHolding.Holdings>nextNode.StockHolding.Holdings)
+                    if(current.StockHolding.Holdings<nextNode.StockHolding.Holdings)
                     {
                         //Swapping the nodes if the next current node is greater than the next node
-                        Swap(nextNode.StockHolding); 
-                    }
+                        Swap(current.StockHolding); 
+                    } 
                 }
             }
+            //for (current = this.head; current.Next != null; current = current.Next)
+            //{
+            //    Console.Write(current);
+            //}
 
     }
 
@@ -257,17 +261,18 @@ namespace Assignment_2
             string currentStockName = (current.StockHolding).Name;
             
             
-            for (current = this.head; current.Next != null; current = current.Next)
+            for (current = this.head; current!= null; current = current.Next)
             {
-                for (nextNode = current.Next; nextNode.Next != null; nextNode = nextNode.Next)
+                for (nextNode = current.Next; nextNode!= null; nextNode = nextNode.Next)
                 {
                     string nextStockName = (nextNode.StockHolding).Name;
-                    if (currentStockName.CompareTo(nextStockName) > 0)
+                    if (currentStockName.CompareTo(nextStockName) < 0)
                     {
-                        Swap(nextNode.StockHolding);
+                        Swap(current.StockHolding);
                     }
                 }
             }
+            
         }
   }
 }

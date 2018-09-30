@@ -14,6 +14,7 @@ namespace Assignment_2
     {
       decimal value = 0.0m;
 
+
       // write your implementation here
 
       return value;
@@ -38,8 +39,13 @@ namespace Assignment_2
     //return type  : NA
     public void Print()
     {
-      // write your implementation here
-
+            // write your implementation here
+            StockNode current = this.head;
+            for (current = this.head; current!= null; current = current.Next)
+            {
+                Console.Write(current);
+                Console.Read();
+            }
+        }
     }
-  }
 }
