@@ -229,6 +229,8 @@ namespace Assignment_2
     public void SortByValue()
     {
             // write your implementation here
+            //checking each node holding of the linkedlist and 
+            //comparing it with all the node holdings if it is smaller then we will swap the nodes
             StockNode current = this.head;
             StockNode nextNode;
             for(current=this.head;current!=null;current=current.Next)
@@ -242,10 +244,7 @@ namespace Assignment_2
                     } 
                 }
             }
-            //for (current = this.head; current.Next != null; current = current.Next)
-            //{
-            //    Console.Write(current);
-            //}
+          
 
     }
 
@@ -256,6 +255,10 @@ namespace Assignment_2
     public void SortByName()
     {
             // write your implementation here
+            // write your implementation here
+            //checking each node names of the linkedlist and 
+            //comparing it with all the node names if it comes later in alphabetical order 
+            //then we will swap the nodes
             StockNode current = this.head;
             StockNode nextNode;
             string currentStockName = (current.StockHolding).Name;
@@ -266,7 +269,7 @@ namespace Assignment_2
                 for (nextNode = current.Next; nextNode!= null; nextNode = nextNode.Next)
                 {
                     string nextStockName = (nextNode.StockHolding).Name;
-                    if (currentStockName.CompareTo(nextStockName) < 0)
+                    if (currentStockName.CompareTo(nextStockName) > 0)
                     {
                         Swap(current.StockHolding);
                     }
