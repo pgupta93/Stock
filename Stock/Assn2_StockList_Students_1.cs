@@ -228,7 +228,7 @@ namespace Assignment_2
     //return type  : NA
     public void SortByValue()
     {
-            // write your implementation here
+            
             //checking each node holding of the linkedlist and 
             //comparing it with all the node holdings if it is smaller then we will swap the nodes
             StockNode current = this.head;
@@ -254,8 +254,7 @@ namespace Assignment_2
     //return type  : NA
     public void SortByName()
     {
-            // write your implementation here
-            // write your implementation here
+            
             //checking each node names of the linkedlist and 
             //comparing it with all the node names if it comes later in alphabetical order 
             //then we will swap the nodes
