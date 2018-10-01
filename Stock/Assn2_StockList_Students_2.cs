@@ -16,11 +16,10 @@ namespace Assignment_2
 
             // write your implementation here
             // traverse the list till the end
-            StockNode lastnode = this.head;
-          
+            resultList = this;
+            StockNode lastnode = resultList.head;
             StockNode current ;
             StockNode check;
-
 
             for (check = listToMerge.head; check.Next != null; check = check.Next)
             {
@@ -52,16 +51,8 @@ namespace Assignment_2
 
                     lastnode.Next = check;
                 }
-                //if (this.Contains(check.StockHolding) != null)
-                //{
-                //    this.Contains(check.StockHolding).StockHolding.Holdings += check.StockHolding.Holdings;
-                //    break;
-                //}
-                
-
             }
-
-            resultList = this;
+            
             return resultList;
         }
 
@@ -82,10 +73,7 @@ namespace Assignment_2
                 {
                     mostShareStock = current.StockHolding;
                 }
-
-
             }
-
             return mostShareStock;
         }
 
