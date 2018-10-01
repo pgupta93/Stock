@@ -13,8 +13,15 @@ namespace Assignment_2
     public decimal Value()
     {
       decimal value = 0.0m;
+            StockNode current = this.head;
+            
 
+            for (current = this.head; current != null; current = current.Next)
+            {
+                value+=(current.StockHolding.Holdings)*(current.StockHolding.CurrentPrice);
+            }
 
+            
       // write your implementation here
 
       return value;
@@ -27,10 +34,25 @@ namespace Assignment_2
     public int Similarity(StockList listToCompare)
     {
       int similarityIndex = 0;
+      StockNode current = this.head;
+      StockNode current2 = listToCompare.head;
+      for(current=this.head;current!=null; current = current.Next)
+            {
+                for (current2 = listToCompare.head; current2 != null; current2 = current2.Next)
+                {
+                    if(current.StockHolding.Symbol==current2.StockHolding.Symbol)
+                    {
+                        similarityIndex += 1;
+                    }
+                }
 
-      // write your implementation here
+            }
 
-      return similarityIndex;
+
+
+            // write your implementation here
+
+            return similarityIndex;
     }
 
     //param        : NA
@@ -43,9 +65,9 @@ namespace Assignment_2
             StockNode current = this.head;
             for (current = this.head; current!= null; current = current.Next)
             {
-                Console.Write(current);
-                Console.Read();
+                Console.WriteLine(current.StockHolding.ToString());
             }
+
         }
     }
 }
