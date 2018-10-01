@@ -18,25 +18,46 @@ namespace Assignment_2
             // traverse the list till the end
             StockNode lastnode = this.head;
           
-            StockNode current = this.head;
+            StockNode current ;
             StockNode check;
+
 
             for (check = listToMerge.head; check.Next != null; check = check.Next)
             {
-                if (this.Contains(check.StockHolding) != null)
+                current = this.head;
+                while(current.Next != null)
                 {
-                    (this.Contains(check.StockHolding)).StockHolding.Holdings += check.StockHolding.Holdings;
+                    Stock currentStock = current.StockHolding;
+
+                    // found it! Return the node
+                    if (currentStock.Symbol==check.StockHolding.Symbol)
+                    {
+                        currentStock.Holdings += check.StockHolding.Holdings;
+                        break;
+                    }
+                    else
+                    {
+                        current = current.Next;
+                        
+                    }
+               
                 }
-                else
+                if(current.Next == null)
                 {
                     lastnode = this.head;
                     while (lastnode.Next != null)
                     {
                         lastnode = lastnode.Next;
                     }
-                        
+
                     lastnode.Next = check;
                 }
+                //if (this.Contains(check.StockHolding) != null)
+                //{
+                //    this.Contains(check.StockHolding).StockHolding.Holdings += check.StockHolding.Holdings;
+                //    break;
+                //}
+                
 
             }
 
