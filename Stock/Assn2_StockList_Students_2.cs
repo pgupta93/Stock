@@ -13,21 +13,17 @@ namespace Assignment_2
         public StockList MergeList(StockList listToMerge)
         {
             StockList resultList = new StockList();
-
             //// write your implementation here
-            //// traverse the list till the end
             resultList = this;
             StockNode lastnode = resultList.head;
             StockNode current;
             StockNode check;
-
             for (check = listToMerge.head; check.Next != null; check = check.Next)
             {
                 current = this.head;
                 while (current.Next != null)
                 {
                     Stock currentStock = current.StockHolding;
-
                     // found it! Return the node
                     if (currentStock.Symbol == check.StockHolding.Symbol)
                     {
@@ -37,7 +33,6 @@ namespace Assignment_2
                     else
                     {
                         current = current.Next;
-
                     }
                 }
                 if (current.Next == null)
@@ -47,11 +42,9 @@ namespace Assignment_2
                     {
                         lastnode = lastnode.Next;
                     }
-
                     lastnode.Next = check;
                 }
             }
-
             return resultList;
         }
 
