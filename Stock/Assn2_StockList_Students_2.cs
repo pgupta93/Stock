@@ -13,41 +13,43 @@ namespace Assignment_2
         public StockList MergeList(StockList listToMerge)
         {
             StockList resultList = new StockList();
-            //// write your implementation here
+
+            // write your implementation here
             resultList = this;
             StockNode lastnode = resultList.head;
-            StockNode current;
+            StockNode current=this.head;
             StockNode check;
             for (check = listToMerge.head; check.Next != null; check = check.Next)
             {
                 current = this.head;
                 while (current.Next != null)
                 {
-                    Stock currentStock = current.StockHolding;
-                    // found it! Return the node
+                Stock currentStock = current.StockHolding;
+                // found it! Return the node
                     if (currentStock.Symbol == check.StockHolding.Symbol)
                     {
-                        currentStock.Holdings += check.StockHolding.Holdings;
-                        break;
+                    currentStock.Holdings += check.StockHolding.Holdings;
+                    break;
                     }
                     else
                     {
-                        current = current.Next;
+                    current = current.Next;
                     }
-                }
-                if (current.Next == null)
-                {
-                    lastnode = this.head;
-                    while (lastnode.Next != null)
+                    if (current.Next == null)
                     {
-                        lastnode = lastnode.Next;
+                        lastnode = this.head;
+                        while (lastnode.Next != null)
+                        {
+                            lastnode = lastnode.Next;
+                        }
+                        lastnode.Next = check;
                     }
-                    lastnode.Next = check;
                 }
             }
+            
             return resultList;
         }
-
+    
         //param        : NA
         //summary      : finds the stock with most number of holdings
         //return       : stock with most shares
